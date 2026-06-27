@@ -25,7 +25,7 @@ export async function addGalleryPhoto(data: Omit<GalleryPhoto, 'id'>): Promise<n
 }
 
 export async function deleteGalleryPhoto(id: number): Promise<boolean> {
-  const [result] = await pool.execute<any>(
+  const [result] = await pool.execute<ResultSetHeader>(
     'DELETE FROM gallery_photos WHERE id = ?', [id]
   );
   return result.affectedRows > 0;

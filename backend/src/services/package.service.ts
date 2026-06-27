@@ -61,7 +61,8 @@ export async function createPackage(data: Omit<Package, 'id'>): Promise<number> 
 
 export async function updatePackage(id: number, data: Partial<Omit<Package, 'id'>>): Promise<boolean> {
   const fields: string[] = [];
-  const values: unknown[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const values: any[] = [];
 
   if (data.name_ar     !== undefined) { fields.push('name_ar = ?');     values.push(data.name_ar); }
   if (data.name_en     !== undefined) { fields.push('name_en = ?');     values.push(data.name_en); }
@@ -77,13 +78,13 @@ export async function updatePackage(id: number, data: Partial<Omit<Package, 'id'
   if (fields.length === 0) return false;
 
   values.push(id);
-  const [result] = await pool.execute<any>(
+  const [result] = await pool.execute<ResultSetHeader>(
     `UPDATE packages SET ${fields.join(', ')} WHERE id = ?`, values
   );
   return result.affectedRows > 0;
 }
 
 export async function deletePackage(id: number): Promise<boolean> {
-  const [result] = await pool.execute<any>('DELETE FROM packages WHERE id = ?', [id]);
+  const [result] = await pool.execute<ResultSetHeader>('DELETE FROM packages WHERE id = ?', [id]);
   return result.affectedRows > 0;
 }
