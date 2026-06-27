@@ -13,17 +13,18 @@ export default {
       },
       colors: {
         brand: {
-          50:  '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f3d0fe',
-          300: '#e879f9',  // primary purple
-          400: '#d946ef',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
+          50:  '#eff8fd',
+          100: '#d9eef9',
+          200: '#b3def4',
+          300: '#7dc7eb',
+          400: '#49aedf',
+          500: '#2b95cc',
+          600: '#1c79aa',
+          700: '#186390',  // primary blue from logo
+          800: '#165278',
+          900: '#134264',
         },
+        dark: '#3D3D3D',   // charcoal from logo
       },
     },
   },

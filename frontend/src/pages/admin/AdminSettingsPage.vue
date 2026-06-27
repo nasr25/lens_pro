@@ -13,7 +13,7 @@
           :class="[
             'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors',
             activeTab === tab.id
-              ? 'bg-white border border-b-white text-purple-700 -mb-px'
+              ? 'bg-white border border-b-white text-brand-700 -mb-px'
               : 'text-gray-600 hover:text-gray-800',
           ]"
         >

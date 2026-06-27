@@ -4,7 +4,7 @@
       <div class="text-center mb-12">
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{{ t('work_title') }}</h2>
         <p class="text-gray-500 text-lg">{{ t('work_subtitle') }}</p>
-        <div class="mx-auto mt-3 w-16 h-1 rounded-full bg-purple-500" />
+        <div class="mx-auto mt-3 w-16 h-1 rounded-full bg-brand-500" />
       </div>
 
       <div v-if="photos.length === 0 && !loading" class="text-center text-gray-400 py-16">
@@ -46,10 +46,10 @@
         <button
           v-if="canGoPrev"
           @click="prev"
-          class="absolute top-1/2 -translate-y-1/2 start-0 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-purple-50 transition-colors"
+          class="absolute top-1/2 -translate-y-1/2 start-0 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-brand-50 transition-colors"
           aria-label="السابق"
         >
-          <svg class="w-5 h-5 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               :d="isRtl ? 'M9 5l7 7-7 7' : 'M15 19l-7-7 7-7'" />
           </svg>
@@ -57,10 +57,10 @@
         <button
           v-if="canGoNext"
           @click="next"
-          class="absolute top-1/2 -translate-y-1/2 end-0 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-purple-50 transition-colors"
+          class="absolute top-1/2 -translate-y-1/2 end-0 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-brand-50 transition-colors"
           aria-label="التالي"
         >
-          <svg class="w-5 h-5 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               :d="isRtl ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'" />
           </svg>
@@ -74,7 +74,7 @@
             @click="goTo(i)"
             :class="[
               'w-2.5 h-2.5 rounded-full transition-all duration-300',
-              i === activeDot ? 'bg-purple-600 w-6' : 'bg-gray-300 hover:bg-gray-400',
+              i === activeDot ? 'bg-brand-600 w-6' : 'bg-gray-300 hover:bg-gray-400',
             ]"
           />
         </div>

@@ -3,19 +3,19 @@
     <div class="mx-auto max-w-4xl">
       <div class="text-center mb-12">
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{{ t('about_title') }}</h2>
-        <div class="mx-auto w-16 h-1 rounded-full bg-purple-500" />
+        <div class="mx-auto w-16 h-1 rounded-full bg-brand-500" />
       </div>
 
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="relative">
-          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-purple-100">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-brand-100">
             <img
               src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&q=80"
               alt="about"
               class="w-full h-full object-cover"
             />
           </div>
-          <div class="absolute -bottom-4 -start-4 w-24 h-24 rounded-2xl bg-purple-600 opacity-20" />
+          <div class="absolute -bottom-4 -start-4 w-24 h-24 rounded-2xl bg-brand-600 opacity-20" />
         </div>
 
         <div>

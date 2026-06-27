@@ -17,10 +17,10 @@
         <div>
           <h4 class="font-semibold text-white mb-4">{{ locale.current === 'ar' ? 'روابط سريعة' : 'Quick Links' }}</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#about"    class="hover:text-purple-400 transition-colors cursor-pointer">{{ t('nav_about') }}</a></li>
-            <li><a href="#work"     class="hover:text-purple-400 transition-colors cursor-pointer">{{ t('nav_work') }}</a></li>
-            <li><a href="#packages" class="hover:text-purple-400 transition-colors cursor-pointer">{{ t('nav_packages') }}</a></li>
-            <li><RouterLink to="/book" class="hover:text-purple-400 transition-colors">{{ t('nav_book') }}</RouterLink></li>
+            <li><a href="#about"    class="hover:text-brand-400 transition-colors cursor-pointer">{{ t('nav_about') }}</a></li>
+            <li><a href="#work"     class="hover:text-brand-400 transition-colors cursor-pointer">{{ t('nav_work') }}</a></li>
+            <li><a href="#packages" class="hover:text-brand-400 transition-colors cursor-pointer">{{ t('nav_packages') }}</a></li>
+            <li><RouterLink to="/book" class="hover:text-brand-400 transition-colors">{{ t('nav_book') }}</RouterLink></li>
           </ul>
         </div>
 

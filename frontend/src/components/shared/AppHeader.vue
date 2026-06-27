@@ -5,23 +5,21 @@
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center gap-2 shrink-0">
           <img
-            v-if="settings.logoUrl"
-            :src="settings.logoUrl"
+            :src="settings.logoUrl || '/logo.jpg'"
             alt="Lens Pro"
-            class="h-10 w-auto object-contain"
+            class="h-12 w-auto object-contain"
           />
-          <span v-else class="text-2xl font-bold text-purple-700">Lens Pro</span>
         </RouterLink>
 
         <!-- Nav links -->
         <nav class="hidden sm:flex items-center gap-5">
-          <a href="#about"    class="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors cursor-pointer">{{ t('nav_about') }}</a>
-          <a href="#work"     class="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors cursor-pointer">{{ t('nav_work') }}</a>
-          <a href="#packages" class="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors cursor-pointer">{{ t('nav_packages') }}</a>
+          <a href="#about"    class="text-sm font-medium text-gray-600 hover:text-brand-700 transition-colors cursor-pointer">{{ t('nav_about') }}</a>
+          <a href="#work"     class="text-sm font-medium text-gray-600 hover:text-brand-700 transition-colors cursor-pointer">{{ t('nav_work') }}</a>
+          <a href="#packages" class="text-sm font-medium text-gray-600 hover:text-brand-700 transition-colors cursor-pointer">{{ t('nav_packages') }}</a>
           <RouterLink
             v-if="isAdmin"
             to="/admin/dashboard"
-            class="text-sm font-medium text-gray-600 hover:text-purple-700"
+            class="text-sm font-medium text-gray-600 hover:text-brand-700"
           >
             لوحة التحكم
           </RouterLink>
@@ -37,7 +35,7 @@
         <!-- Lang toggle -->
         <button
           @click="locale.toggleLocale()"
-          class="ms-4 rounded-full border border-purple-300 px-3 py-1 text-sm font-semibold text-purple-700 hover:bg-purple-50 transition-colors"
+          class="ms-4 rounded-full border border-brand-300 px-3 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition-colors"
         >
           {{ t('lang_toggle') }}
         </button>

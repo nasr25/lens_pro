@@ -15,16 +15,16 @@
         v-for="pkg in packages"
         :key="pkg.id"
         class="flex items-center justify-between p-4 border rounded-xl"
-        :class="pkg.is_featured ? 'border-purple-300 bg-purple-50' : 'border-gray-200'"
+        :class="pkg.is_featured ? 'border-brand-300 bg-brand-50' : 'border-gray-200'"
       >
         <div>
           <span class="font-medium text-gray-800">{{ pkg.name_ar }}</span>
           <span class="text-gray-400 mx-2">/</span>
           <span class="text-gray-600 text-sm">{{ pkg.name_en }}</span>
-          <span v-if="pkg.is_featured" class="ms-2 text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">مميزة</span>
+          <span v-if="pkg.is_featured" class="ms-2 text-xs bg-brand-200 text-brand-800 px-2 py-0.5 rounded-full">مميزة</span>
         </div>
         <div class="flex items-center gap-3">
-          <span class="font-bold text-purple-700">{{ pkg.price }} {{ pkg.currency }}</span>
+          <span class="font-bold text-brand-700">{{ pkg.price }} {{ pkg.currency }}</span>
           <button @click="openEdit(pkg)" class="text-sm text-blue-600 hover:underline">تعديل</button>
           <button @click="deletePkg(pkg.id)" class="text-sm text-red-500 hover:underline">حذف</button>
         </div>
@@ -84,7 +84,7 @@
           </div>
 
           <div class="flex items-center gap-2">
-            <input v-model="form.is_featured" type="checkbox" id="featured" class="rounded border-gray-300 text-purple-600" />
+            <input v-model="form.is_featured" type="checkbox" id="featured" class="rounded border-gray-300 text-brand-600" />
             <label for="featured" class="text-sm text-gray-700">باقة مميزة (تظهر بتصميم بارز)</label>
           </div>
 

@@ -3,13 +3,13 @@
     <AppHeader />
 
     <!-- Hero -->
-    <section class="bg-gradient-to-bl from-purple-900 to-purple-700 text-white py-20 px-4">
+    <section class="bg-gradient-to-bl from-brand-900 to-brand-700 text-white py-20 px-4">
       <div class="mx-auto max-w-3xl text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-5">{{ t('hero_title') }}</h1>
-        <p class="text-lg text-purple-200 mb-8 leading-relaxed">{{ t('hero_subtitle') }}</p>
+        <p class="text-lg text-brand-200 mb-8 leading-relaxed">{{ t('hero_subtitle') }}</p>
         <a
           href="#calendar"
-          class="inline-block bg-white text-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-50 transition-colors shadow-lg"
+          class="inline-block bg-white text-brand-700 font-semibold px-8 py-3 rounded-full hover:bg-brand-50 transition-colors shadow-lg"
         >
           {{ t('hero_cta') }}
         </a>
