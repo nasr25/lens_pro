@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { requireAuth } from '../../middleware/auth.middleware';
+import { listPhotos, addPhoto, removePhoto, reorder } from '../../controllers/admin/gallery.controller';
+const router = Router();
+router.use(requireAuth);
+router.get('/',          listPhotos);
+router.post('/',         addPhoto);
+router.delete('/:id',    removePhoto);
+router.post('/reorder',  reorder);
+export default router;

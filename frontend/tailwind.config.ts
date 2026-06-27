@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        arabic: ['Tajawal', 'Cairo', 'system-ui', 'sans-serif'],
+        arabic: ['IBM Plex Sans Arabic', 'system-ui', 'sans-serif'],
       },
       colors: {
         brand: {

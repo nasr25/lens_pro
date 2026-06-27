@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { requireAuth } from '../../middleware/auth.middleware';
+import { listPackages, addPackage, editPackage, removePackage } from '../../controllers/admin/packages.controller';
+const router = Router();
+router.use(requireAuth);
+router.get('/',      listPackages);
+router.post('/',     addPackage);
+router.patch('/:id', editPackage);
+router.delete('/:id', removePackage);
+export default router;

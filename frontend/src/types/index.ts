@@ -50,6 +50,28 @@ export interface DashboardStats {
   rejected: number;
 }
 
+export interface GalleryPhoto {
+  id: number;
+  url: string;
+  caption_ar: string | null;
+  caption_en: string | null;
+  sort_order: number;
+}
+
+export interface Package {
+  id: number;
+  name_ar: string;
+  name_en: string;
+  price: number;
+  currency: string;
+  description_ar: string | null;
+  description_en: string | null;
+  features_ar: string[];
+  features_en: string[];
+  is_featured: boolean;
+  sort_order: number;
+}
+
 export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   wedding:    'حفل زفاف',
   graduation: 'حفل تخرج',

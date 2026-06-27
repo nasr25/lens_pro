@@ -3,23 +3,27 @@
     <AppHeader />
 
     <!-- Hero -->
-    <section class="bg-gradient-to-bl from-purple-900 to-purple-700 text-white py-16 px-4">
+    <section class="bg-gradient-to-bl from-purple-900 to-purple-700 text-white py-20 px-4">
       <div class="mx-auto max-w-3xl text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4">احجز جلستك التصويرية</h1>
-        <p class="text-lg text-purple-200">
-          لحظاتك تستحق أن تُخلَّد. اختر موعدك المناسب وسنكون معك.
-        </p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-5">{{ t('hero_title') }}</h1>
+        <p class="text-lg text-purple-200 mb-8 leading-relaxed">{{ t('hero_subtitle') }}</p>
+        <a
+          href="#calendar"
+          class="inline-block bg-white text-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-50 transition-colors shadow-lg"
+        >
+          {{ t('hero_cta') }}
+        </a>
       </div>
     </section>
 
     <!-- Calendar section -->
-    <section class="mx-auto max-w-2xl px-4 py-10">
+    <section id="calendar" class="mx-auto max-w-2xl px-4 py-14">
       <div class="card">
-        <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">المواعيد المتاحة</h2>
+        <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ t('calendar_title') }}</h2>
 
         <div v-if="store.error" class="mb-4 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">
           {{ store.error }}
-          <button class="underline mr-2" @click="reload">إعادة المحاولة</button>
+          <button class="underline ms-2" @click="reload">{{ locale.current === 'ar' ? 'إعادة المحاولة' : 'Retry' }}</button>
         </div>
 
         <CalendarView
@@ -31,28 +35,48 @@
       </div>
 
       <p class="text-center text-sm text-gray-500 mt-6">
-        انقر على أي موعد
+        {{ locale.current === 'ar' ? 'انقر على أي موعد' : 'Click any date' }}
         <span class="inline-flex items-center gap-1">
           <span class="w-3 h-3 rounded-sm bg-green-200 ring-1 ring-green-400 inline-block" />
-          أخضر
+          {{ t('calendar_available') }}
         </span>
-        للحجز
+        {{ locale.current === 'ar' ? 'للحجز' : 'to book' }}
       </p>
     </section>
+
+    <!-- About section -->
+    <AboutSection />
+
+    <!-- Our Work slider -->
+    <OurWorkSlider />
+
+    <!-- Packages section -->
+    <PackagesSection />
+
+    <!-- Footer -->
+    <SiteFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import AppHeader from '@/components/shared/AppHeader.vue';
-import CalendarView from '@/components/public/CalendarView.vue';
-import { useBookingStore } from '@/stores/booking';
-import type { SlotCalendarEntry } from '@/types';
 import { format } from 'date-fns';
+import AppHeader     from '@/components/shared/AppHeader.vue';
+import CalendarView  from '@/components/public/CalendarView.vue';
+import AboutSection  from '@/components/public/AboutSection.vue';
+import OurWorkSlider from '@/components/public/OurWorkSlider.vue';
+import PackagesSection from '@/components/public/PackagesSection.vue';
+import SiteFooter    from '@/components/public/SiteFooter.vue';
+import { useBookingStore } from '@/stores/booking';
+import { useSettingsStore } from '@/stores/settings';
+import { useI18n } from '@/composables/useI18n';
+import type { SlotCalendarEntry } from '@/types';
 
-const store  = useBookingStore();
-const router = useRouter();
+const store    = useBookingStore();
+const settings = useSettingsStore();
+const router   = useRouter();
+const { t, locale } = useI18n();
 
 function onMonthChanged(month: string): void {
   store.loadSlots(month);
@@ -68,8 +92,11 @@ function reload(): void {
   store.loadSlots(month);
 }
 
-onMounted(() => {
+onMounted(async () => {
   const month = format(new Date(), 'yyyy-MM');
   store.loadSlots(month);
+  try {
+    await settings.fetchAll();
+  } catch { /* settings are optional */ }
 });
 </script>
