@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-100 flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-purple-700">Lens Pro</h1>
+        <h1 class="text-3xl font-bold text-brand-700">Lens Pro</h1>
         <p class="text-gray-500 text-sm mt-1">لوحة تحكم الإدارة</p>
       </div>
 

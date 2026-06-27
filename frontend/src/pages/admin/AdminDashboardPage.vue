@@ -28,7 +28,7 @@
       <div class="card">
         <div class="flex items-center justify-between mb-4">
           <h2 class="font-bold text-gray-800">آخر الحجوزات</h2>
-          <RouterLink to="/admin/bookings" class="text-sm text-purple-600 hover:underline">
+          <RouterLink to="/admin/bookings" class="text-sm text-brand-600 hover:underline">
             عرض الكل
           </RouterLink>
         </div>

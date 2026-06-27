@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-50">
     <AppHeader />
     <div class="mx-auto max-w-xl px-4 py-10">
-      <RouterLink to="/" class="text-sm text-purple-600 hover:underline flex items-center gap-1 mb-6">
+      <RouterLink to="/" class="text-sm text-brand-600 hover:underline flex items-center gap-1 mb-6">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
@@ -10,7 +10,7 @@
       </RouterLink>
 
       <div v-if="!slotId" class="card text-center text-gray-500">
-        لم يتم اختيار موعد. <RouterLink to="/" class="text-purple-600 underline">اختر موعدًا</RouterLink>
+        لم يتم اختيار موعد. <RouterLink to="/" class="text-brand-600 underline">اختر موعدًا</RouterLink>
       </div>
 
       <div v-else-if="slotUnavailable" class="card text-center">
@@ -19,9 +19,9 @@
       </div>
 
       <div v-else class="card">
-        <div class="mb-6 p-4 bg-purple-50 rounded-lg">
+        <div class="mb-6 p-4 bg-brand-50 rounded-lg">
           <p class="text-sm text-gray-600">الموعد المختار</p>
-          <p class="text-lg font-bold text-purple-800 mt-1">{{ slotLabel }}</p>
+          <p class="text-lg font-bold text-brand-800 mt-1">{{ slotLabel }}</p>
         </div>
         <h1 class="text-xl font-bold text-gray-900 mb-6">بيانات الحجز</h1>
         <BookingForm :slot-id="slotId" />

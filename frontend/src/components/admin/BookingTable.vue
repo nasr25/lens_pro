@@ -9,7 +9,7 @@
         :class="[
           'px-4 py-1.5 rounded-full text-sm font-semibold transition-colors',
           activeStatus === tab.value
-            ? 'bg-purple-600 text-white'
+            ? 'bg-brand-600 text-white'
             : 'bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50',
         ]"
         @click="$emit('filterChange', tab.value)"

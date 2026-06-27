@@ -106,13 +106,13 @@
             v-bind="fields.termsAcceptedAttrs"
             v-model="fields.termsAccepted.value"
             type="checkbox"
-            class="mt-0.5 h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+            class="mt-0.5 h-4 w-4 rounded border-gray-300 text-brand-600 focus:ring-brand-500"
           />
           <span class="text-sm text-gray-700">
             أوافق على
             <button
               type="button"
-              class="text-purple-600 underline hover:text-purple-800"
+              class="text-brand-600 underline hover:text-brand-800"
               @click="showTerms = true"
             >
               الشروط والأحكام
