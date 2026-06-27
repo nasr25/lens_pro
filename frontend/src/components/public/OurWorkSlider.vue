@@ -123,11 +123,32 @@ function stopAutoPlay() {
   if (timer) clearInterval(timer);
 }
 
+function svgPhoto(gradient: string, icon: string, label: string): string {
+  return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'>${gradient}</linearGradient></defs><rect width='800' height='600' fill='url(%23g)'/><text x='400' y='270' font-family='sans-serif' font-size='80' text-anchor='middle' fill='white' opacity='0.9'>${icon}</text><text x='400' y='360' font-family='sans-serif' font-size='32' text-anchor='middle' fill='white' opacity='0.85'>${label}</text></svg>`;
+}
+
+const DUMMY_PHOTOS: GalleryPhoto[] = [
+  { id: 1, sort_order: 0, caption_ar: 'تصوير حفل زفاف',       caption_en: 'Wedding Photography',
+    url: svgPhoto("<stop offset='0%25' stop-color='%231c79aa'/><stop offset='100%25' stop-color='%232b95cc'/>", '💍', 'Wedding') },
+  { id: 2, sort_order: 1, caption_ar: 'جلسة عروس',             caption_en: 'Bridal Session',
+    url: svgPhoto("<stop offset='0%25' stop-color='%23186390'/><stop offset='100%25' stop-color='%231c79aa'/>", '👰', 'Bridal') },
+  { id: 3, sort_order: 2, caption_ar: 'حفل تخرج',              caption_en: 'Graduation Ceremony',
+    url: svgPhoto("<stop offset='0%25' stop-color='%23134264'/><stop offset='100%25' stop-color='%23186390'/>", '🎓', 'Graduation') },
+  { id: 4, sort_order: 3, caption_ar: 'تصوير طبيعي',           caption_en: 'Nature Photography',
+    url: svgPhoto("<stop offset='0%25' stop-color='%232b95cc'/><stop offset='100%25' stop-color='%2349aedf'/>", '🌿', 'Nature') },
+  { id: 5, sort_order: 4, caption_ar: 'جلسة بورتريه',          caption_en: 'Portrait Session',
+    url: svgPhoto("<stop offset='0%25' stop-color='%231c79aa'/><stop offset='100%25' stop-color='%237dc7eb'/>", '📸', 'Portrait') },
+  { id: 6, sort_order: 5, caption_ar: 'تصوير مناسبة تجارية',  caption_en: 'Corporate Event',
+    url: svgPhoto("<stop offset='0%25' stop-color='%23165278'/><stop offset='100%25' stop-color='%231c79aa'/>", '🏢', 'Corporate') },
+];
+
 onMounted(async () => {
   try {
     const res = await galleryApi.list();
-    photos.value = res.data;
-  } catch { /* show empty state */ }
+    photos.value = res.data.length > 0 ? res.data : DUMMY_PHOTOS;
+  } catch {
+    photos.value = DUMMY_PHOTOS;
+  }
   loading.value = false;
   startAutoPlay();
 });
