@@ -123,17 +123,16 @@ echo "[7/8] Starting services with PM2..."
 cd "$APP_DIR"
 
 pm2 delete lens-pro-backend 2>/dev/null || true
-pm2 start backend/dist/server.js \
+pm2 start "$APP_DIR/backend/dist/server.js" \
   --name lens-pro-backend \
   --cwd "$APP_DIR/backend" \
   --env production \
   --max-memory-restart 300M
 
+npm install -g serve 2>/dev/null
 pm2 delete lens-pro-frontend 2>/dev/null || true
-pm2 start "npx serve frontend/dist -p $PORT_FRONTEND -s" \
-  --name lens-pro-frontend \
-  --cwd "$APP_DIR" \
-  --interpreter bash
+pm2 start "serve $APP_DIR/frontend/dist -p $PORT_FRONTEND -s" \
+  --name lens-pro-frontend
 
 pm2 save
 pm2 startup systemd -u root --hp /root 2>/dev/null | tail -1 | bash 2>/dev/null || true
