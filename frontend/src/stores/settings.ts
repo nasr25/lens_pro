@@ -12,6 +12,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const socialTwitter   = ref('');
   const socialSnapchat  = ref('');
   const socialTiktok    = ref('');
+  const socialYoutube   = ref('');
   const footerTextAr    = ref('');
   const footerTextEn    = ref('');
 
@@ -33,6 +34,7 @@ export const useSettingsStore = defineStore('settings', () => {
     if (s.social_twitter)       socialTwitter.value   = s.social_twitter;
     if (s.social_snapchat)      socialSnapchat.value  = s.social_snapchat;
     if (s.social_tiktok)        socialTiktok.value    = s.social_tiktok;
+    if (s.social_youtube)       socialYoutube.value   = s.social_youtube;
     if (s.footer_text_ar)       footerTextAr.value    = s.footer_text_ar;
     if (s.footer_text_en)       footerTextEn.value    = s.footer_text_en;
     loaded.value = true;
@@ -40,7 +42,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
   return {
     terms, loaded, logoUrl, aboutAr, aboutEn,
-    socialInstagram, socialTwitter, socialSnapchat, socialTiktok,
+    socialInstagram, socialTwitter, socialSnapchat, socialTiktok, socialYoutube,
     footerTextAr, footerTextEn,
     fetchTerms, fetchAll,
   };

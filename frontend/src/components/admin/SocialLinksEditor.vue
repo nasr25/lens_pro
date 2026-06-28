@@ -45,7 +45,8 @@ const fields = [
   { key: 'social_instagram', label: 'Instagram', placeholder: 'https://instagram.com/...' },
   { key: 'social_twitter',   label: 'X / Twitter', placeholder: 'https://x.com/...' },
   { key: 'social_snapchat',  label: 'Snapchat', placeholder: 'https://snapchat.com/...' },
-  { key: 'social_tiktok',    label: 'TikTok', placeholder: 'https://tiktok.com/...' },
+  { key: 'social_tiktok',    label: 'TikTok',   placeholder: 'https://tiktok.com/...' },
+  { key: 'social_youtube',   label: 'YouTube',  placeholder: 'https://youtube.com/@...' },
 ];
 
 const values  = reactive<Record<string, string>>({
@@ -53,6 +54,7 @@ const values  = reactive<Record<string, string>>({
   social_twitter:   '',
   social_snapchat:  '',
   social_tiktok:    '',
+  social_youtube:   '',
 });
 const footerAr = ref('');
 const footerEn = ref('');
@@ -67,6 +69,7 @@ onMounted(async () => {
     values.social_twitter   = settings.socialTwitter;
     values.social_snapchat  = settings.socialSnapchat;
     values.social_tiktok    = settings.socialTiktok;
+    values.social_youtube   = settings.socialYoutube;
     footerAr.value          = settings.footerTextAr;
     footerEn.value          = settings.footerTextEn;
   } catch { /* ignore */ }
@@ -86,6 +89,7 @@ async function save() {
     settings.socialTwitter   = values.social_twitter;
     settings.socialSnapchat  = values.social_snapchat;
     settings.socialTiktok    = values.social_tiktok;
+    settings.socialYoutube   = values.social_youtube;
     settings.footerTextAr    = footerAr.value;
     settings.footerTextEn    = footerEn.value;
     success.value = true;

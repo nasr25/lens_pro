@@ -5,7 +5,7 @@ import { pool } from '../../config/database';
 const ALLOWED_KEYS = [
   'terms_and_conditions', 'site_name', 'contact_phone', 'contact_email',
   'logo_url', 'about_ar', 'about_en',
-  'social_instagram', 'social_twitter', 'social_snapchat', 'social_tiktok',
+  'social_instagram', 'social_twitter', 'social_snapchat', 'social_tiktok', 'social_youtube',
   'footer_text_ar', 'footer_text_en',
 ];
 
