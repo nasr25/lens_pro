@@ -16,20 +16,11 @@ export const useSettingsStore = defineStore('settings', () => {
   const footerTextAr    = ref('');
   const footerTextEn    = ref('');
 
-  async function fetchTerms(): Promise<void> {
-    if (loaded.value) return;
-    const res = await settingsApi.getTerms();
-    terms.value  = res.data.terms;
-    loaded.value = true;
-  }
-
-  async function fetchAll(): Promise<void> {
-    const res = await settingsApi.adminGetAll();
-    const s = res.data;
-    if (s.terms_and_conditions) terms.value       = s.terms_and_conditions;
-    if (s.logo_url)             logoUrl.value      = s.logo_url;
-    if (s.about_ar)             aboutAr.value      = s.about_ar;
-    if (s.about_en)             aboutEn.value      = s.about_en;
+  function applySettings(s: Record<string, string>) {
+    if (s.terms_and_conditions) terms.value           = s.terms_and_conditions;
+    if (s.logo_url)             logoUrl.value         = s.logo_url;
+    if (s.about_ar)             aboutAr.value         = s.about_ar;
+    if (s.about_en)             aboutEn.value         = s.about_en;
     if (s.social_instagram)     socialInstagram.value = s.social_instagram;
     if (s.social_twitter)       socialTwitter.value   = s.social_twitter;
     if (s.social_snapchat)      socialSnapchat.value  = s.social_snapchat;
@@ -40,10 +31,27 @@ export const useSettingsStore = defineStore('settings', () => {
     loaded.value = true;
   }
 
+  async function fetchTerms(): Promise<void> {
+    if (loaded.value) return;
+    const res = await settingsApi.getTerms();
+    terms.value  = res.data.terms;
+    loaded.value = true;
+  }
+
+  async function fetchPublic(): Promise<void> {
+    const res = await settingsApi.getPublic();
+    applySettings(res.data);
+  }
+
+  async function fetchAll(): Promise<void> {
+    const res = await settingsApi.adminGetAll();
+    applySettings(res.data);
+  }
+
   return {
     terms, loaded, logoUrl, aboutAr, aboutEn,
     socialInstagram, socialTwitter, socialSnapchat, socialTiktok, socialYoutube,
     footerTextAr, footerTextEn,
-    fetchTerms, fetchAll,
+    fetchTerms, fetchPublic, fetchAll,
   };
 });

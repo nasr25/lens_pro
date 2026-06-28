@@ -96,7 +96,7 @@ onMounted(async () => {
   const month = format(new Date(), 'yyyy-MM');
   store.loadSlots(month);
   try {
-    await settings.fetchAll();
+    await settings.fetchPublic();
   } catch { /* settings are optional */ }
 });
 </script>
